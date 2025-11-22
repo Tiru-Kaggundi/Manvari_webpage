@@ -36,11 +36,16 @@ const App: React.FC = () => {
     }
   };
 
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Thank you for your message. We will be in touch shortly.");
+  };
+
   return (
     <div className="min-h-screen font-sans selection:bg-accent-DEFAULT selection:text-white">
       
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-8 h-8 bg-primary-DEFAULT rounded-sm flex items-center justify-center text-white font-serif font-bold text-xl">L</div>
@@ -61,13 +66,13 @@ const App: React.FC = () => {
             </button>
           </div>
 
-          <button className="md:hidden text-slate-900" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="md:hidden text-slate-900 z-50" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-8 text-xl font-serif animate-fade-in">
             <button onClick={() => scrollTo('services')} className="hover:text-accent-DEFAULT">Services</button>
@@ -78,7 +83,7 @@ const App: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <header className="relative min-h-screen flex items-center pt-20">
+      <header className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <HeroScene />
         
         <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -118,7 +123,7 @@ const App: React.FC = () => {
           
           {/* Hero Image / Graphic Placeholder */}
           <motion.div 
-             initial={{ opacity: 0, scale: 0.9 }}
+             initial={{ opacity: 0, scale: 0.95 }}
              animate={{ opacity: 1, scale: 1 }}
              transition={{ duration: 0.8 }}
              className="hidden md:block relative"
@@ -127,7 +132,7 @@ const App: React.FC = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" 
                   alt="Modern Office Architecture" 
-                  className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+                  className="object-cover w-full h-full hover:scale-105 transition-transform duration-[2s]"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 to-transparent p-8">
                    <p className="text-white/90 font-serif italic">"Strategy is about making choices, trade-offs; it's about deliberately choosing to be different."</p>
@@ -209,21 +214,21 @@ const App: React.FC = () => {
               <div>
                  <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-4 mt-8">
-                       <div className="bg-white p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center border-l-4 border-accent-DEFAULT">
-                          <h3 className="font-serif text-xl mb-2">Analysis</h3>
-                          <p className="text-sm text-slate-500">Deep dive diagnostics to uncover root causes.</p>
+                       <div className="bg-white p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center border-l-4 border-accent-DEFAULT hover:-translate-y-1 transition-transform">
+                          <h3 className="font-serif text-xl mb-2 px-6">Analysis</h3>
+                          <p className="text-sm text-slate-500 px-6">Deep dive diagnostics to uncover root causes.</p>
                        </div>
-                       <div className="bg-slate-800 p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center text-white">
+                       <div className="bg-slate-800 p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center text-white hover:-translate-y-1 transition-transform">
                           <h3 className="font-serif text-xl mb-2">Strategy</h3>
                           <p className="text-sm text-slate-400">Custom roadmaps designed for your market.</p>
                        </div>
                     </div>
                     <div className="space-y-4">
-                       <div className="bg-white p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center border-l-4 border-primary-DEFAULT">
-                          <h3 className="font-serif text-xl mb-2">Execution</h3>
-                          <p className="text-sm text-slate-500">Hands-on support during implementation.</p>
+                       <div className="bg-white p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center border-l-4 border-primary-DEFAULT hover:-translate-y-1 transition-transform">
+                          <h3 className="font-serif text-xl mb-2 px-6">Execution</h3>
+                          <p className="text-sm text-slate-500 px-6">Hands-on support during implementation.</p>
                        </div>
-                       <div className="bg-accent-DEFAULT p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center text-white">
+                       <div className="bg-accent-DEFAULT p-6 rounded-xl shadow-sm h-48 flex flex-col justify-center text-white hover:-translate-y-1 transition-transform">
                           <h3 className="font-serif text-xl mb-2">Results</h3>
                           <p className="text-sm text-white/80">Measurable impact on your KPIs.</p>
                        </div>
@@ -239,7 +244,7 @@ const App: React.FC = () => {
               <StatsDisplay />
               
               <div className="mt-20 max-w-4xl mx-auto text-center">
-                 <h3 className="text-2xl font-serif italic text-slate-800 mb-8">
+                 <h3 className="text-2xl font-serif italic text-slate-800 mb-8 leading-relaxed">
                     "Lumina transformed our operational model, leading to a 40% increase in efficiency within the first quarter. An indispensable partner."
                  </h3>
                  <div className="flex items-center justify-center gap-4">
@@ -265,27 +270,27 @@ const App: React.FC = () => {
                  </p>
                  
                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                       <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                          <Mail className="text-accent-DEFAULT" />
+                    <div className="flex items-center gap-4 group cursor-pointer">
+                       <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-accent-DEFAULT transition-colors">
+                          <Mail className="text-accent-DEFAULT group-hover:text-white transition-colors" />
                        </div>
                        <div>
                           <div className="text-sm text-slate-400">Email Us</div>
                           <div className="font-medium">contact@luminastrategy.com</div>
                        </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                       <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                          <Phone className="text-accent-DEFAULT" />
+                    <div className="flex items-center gap-4 group cursor-pointer">
+                       <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-accent-DEFAULT transition-colors">
+                          <Phone className="text-accent-DEFAULT group-hover:text-white transition-colors" />
                        </div>
                        <div>
                           <div className="text-sm text-slate-400">Call Us</div>
                           <div className="font-medium">+1 (555) 123-4567</div>
                        </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                       <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                          <MapPin className="text-accent-DEFAULT" />
+                    <div className="flex items-center gap-4 group cursor-pointer">
+                       <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-accent-DEFAULT transition-colors">
+                          <MapPin className="text-accent-DEFAULT group-hover:text-white transition-colors" />
                        </div>
                        <div>
                           <div className="text-sm text-slate-400">Visit Us</div>
@@ -295,22 +300,22 @@ const App: React.FC = () => {
                  </div>
               </div>
 
-              <form className="bg-white rounded-xl p-8 text-slate-900" onSubmit={(e) => e.preventDefault()}>
+              <form className="bg-white rounded-xl p-8 text-slate-900 shadow-lg" onSubmit={handleFormSubmit}>
                  <h3 className="text-xl font-bold mb-6">Send a Message</h3>
                  <div className="space-y-4">
                     <div>
                        <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>
-                       <input type="text" className="w-full px-4 py-2 border border-slate-200 rounded-md focus:ring-2 focus:ring-accent-DEFAULT focus:border-transparent outline-none transition-all" placeholder="Your name" />
+                       <input required type="text" className="w-full px-4 py-2 border border-slate-200 rounded-md focus:ring-2 focus:ring-accent-DEFAULT focus:border-transparent outline-none transition-all" placeholder="Your name" />
                     </div>
                     <div>
                        <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                       <input type="email" className="w-full px-4 py-2 border border-slate-200 rounded-md focus:ring-2 focus:ring-accent-DEFAULT focus:border-transparent outline-none transition-all" placeholder="john@company.com" />
+                       <input required type="email" className="w-full px-4 py-2 border border-slate-200 rounded-md focus:ring-2 focus:ring-accent-DEFAULT focus:border-transparent outline-none transition-all" placeholder="john@company.com" />
                     </div>
                     <div>
                        <label className="block text-sm font-medium text-slate-700 mb-1">Message</label>
-                       <textarea rows={4} className="w-full px-4 py-2 border border-slate-200 rounded-md focus:ring-2 focus:ring-accent-DEFAULT focus:border-transparent outline-none transition-all" placeholder="How can we help you?"></textarea>
+                       <textarea required rows={4} className="w-full px-4 py-2 border border-slate-200 rounded-md focus:ring-2 focus:ring-accent-DEFAULT focus:border-transparent outline-none transition-all" placeholder="How can we help you?"></textarea>
                     </div>
-                    <button className="w-full py-3 bg-accent-DEFAULT text-white font-bold rounded-md hover:bg-accent-dark transition-colors">
+                    <button type="submit" className="w-full py-3 bg-accent-DEFAULT text-white font-bold rounded-md hover:bg-accent-dark transition-colors">
                        Send Inquiry
                     </button>
                  </div>

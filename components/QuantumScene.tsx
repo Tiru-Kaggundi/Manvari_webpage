@@ -25,16 +25,3 @@ export const HeroScene: React.FC = () => {
     </div>
   );
 };
-
-// Placeholder for compatibility, returns null as we don't need the second scene
-export const QuantumComputerScene: React.FC = () => {
-  return (
-    <div className="w-full h-full bg-slate-100 rounded-xl overflow-hidden relative">
-       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-          <div className="w-64 h-64 border-4 border-primary-light rounded-full flex items-center justify-center">
-             <div className="w-48 h-48 border-4 border-accent-DEFAULT rounded-full"></div>
-          </div>
-       </div>
-    </div>
-  );
-};
