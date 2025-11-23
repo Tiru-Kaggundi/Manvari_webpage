@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeroScene } from './components/QuantumScene';
 import { ServiceCard } from './components/Diagrams';
-import { Menu, X, ArrowRight, Mail, Phone, MapPin, ChevronRight, CheckCircle2, Users, Globe } from 'lucide-react';
+import { Menu, X, ArrowRight, Mail, Phone, MapPin, ChevronRight, CheckCircle2, Users, Globe, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
@@ -168,7 +168,7 @@ const App: React.FC = () => {
               <ServiceCard 
                 title="Recruitment & Search"
                 description="Identifying and securing top-tier leadership through Executive Search and specialized recruitment services to drive your organization forward."
-                icon={<TargetIcon />}
+                icon={<Target className="w-8 h-8" />}
                 delay={0.2}
               />
               <ServiceCard 
@@ -322,8 +322,9 @@ const App: React.FC = () => {
               </div>
            </div>
         </section>
+      </main>
 
-        <footer className="bg-accent text-white py-12 border-t border-accent-dark">
+      <footer className="bg-accent text-white py-12 border-t border-accent-dark">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm opacity-90">
                &copy; {new Date().getFullYear()} Manvari Partners. All rights reserved.
@@ -338,10 +339,5 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-// Internal Icons for usage
-const TargetIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-)
 
 export default App;
