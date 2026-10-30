@@ -1,56 +1,40 @@
-# Customization Guide for Lumina Consulting Website
+# Customization Guide for Manvari Partners Website
 
-This guide outlines where to find and edit specific content within the project files to customize the website for your specific requirements.
+This guide outlines the architecture and key components of the Manvari Partners global executive search and recruitment consultancy web application.
 
-## 1. General Configuration (Title, Colors)
-**File:** `index.html`
-- **Page Title**: Look for `<title>Lumina Strategy | Strategic Business Consulting</title>` inside the `<head>` tag. Change this to your company name.
-- **Meta Description**: Update the `<meta name="description" ...>` tag for better SEO.
-- **Theme Colors**: The Tailwind configuration is in the `<script>` tag in the head.
-  - Change `primary` hex codes to change the dark blue/slate colors.
-  - Change `accent` hex codes to change the highlight color (currently blue/sky).
+## 1. Brand & General Configuration
+- **File:** `index.html` & `metadata.json`
+  - **Page Title & Meta**: Contains search engine tags targeting Global Executive Search, Retained & Contingency Recruitment, and HR Advisory.
+  - **Colors & Typography**: Tailored around Chicago Maroon (`#800000`, darker `#4A0000`) and Executive Slate (`#0F172A`) with Playfair Display and Inter.
 
-## 2. Navigation & Company Name
-**File:** `App.tsx`
-- **Logo/Name**: Search for the text "Lumina" inside the `<nav>` section (around line 48).
-- **Menu Links**: If you want to rename "Services" or "About", look for the `<button>` elements inside the nav.
+## 2. Executive Search Models
+- **File:** `App.tsx` & `components/Diagrams.tsx`
+  - Four core search engagement models:
+    1. **Executive Search & Board Advisory**
+    2. **Retained Search Mandates**
+    3. **Specialized Contingency Search**
+    4. **Strategic HR Consultancy**
+  - Configurable data structures defined in `types.ts` (`SearchModel`).
 
-## 3. Hero Section (Top of page)
-**File:** `App.tsx`
-- **Main Headline**: Search for "Clarity in". Note that the word "Complexity" is wrapped in a span for styling.
-- **Subheadline**: Search for "We help forward-thinking organizations...".
-- **Hero Image**: Search for the `<img>` tag with `alt="Modern Office Architecture"`.
-  - **To change the image**: Replace the `src="..."` URL with a link to your own image.
+## 3. Industry Practices & Functional Skillsets
+- **File:** `App.tsx`
+  - Covers Technology & Digital Infrastructure, Financial Services & Private Equity, Industrial & Advanced Manufacturing, Healthcare & Life Sciences, Consumer & Retail Brands, and Corporate Functions.
+  - Interactive tab matrix showcasing representative mandates placed.
 
-## 4. Services Section
-**File:** `App.tsx`
-- **Service Content**: The content for Corporate Strategy, Operational Excellence, etc., is located in the `<ServiceCard />` components (around line 138).
-  - Edit the `title=""` and `description=""` props directly.
+## 4. Search Methodology (6-Stage Lifecycle)
+- **File:** `App.tsx`
+  - Stages: Mandate Calibration, Global Market Intelligence, Confidential Direct Vetting, Calibrated Shortlist, Offer Structuring, and 100-Day Integration Guarantee.
 
-## 5. About Section
-**File:** `App.tsx`
-- **Headlines & Text**: Search for "Why Lumina?" (around line 158).
-- **Bullet Points**: The list of benefits ("Evidence-based decision making", etc.) is in an array `["...", "..."]`. You can add or remove items from this list.
+## 5. Interactive Mandate Estimator
+- **File:** `App.tsx`
+  - Allows clients to customize search models, target seniority, and geographic placement horizon with dynamic timeline and candidate pool estimation, with 1-click bridge to the confidential inquiry form.
 
-## 6. Statistics (Results)
-**File:** `components/Diagrams.tsx`
-- **Stats Data**: The numbers (50+, $200M, 98%) are **not** in `App.tsx`. They are defined in the `StatsDisplay` component.
-- **How to edit**: Open `components/Diagrams.tsx` and look for the `const stats = [...]` array (around line 28).
+## 6. Executive Leadership
+- **File:** `App.tsx`
+  - Features CEO & Managing Partner S Agarwal, highlighting international executive talent acquisition and cross-border placement pedigree across Americas, EMEA, and Asia-Pacific.
 
-## 7. Testimonials
-**File:** `App.tsx`
-- **Quote**: Search for "Lumina transformed our operational model..." (around line 208).
-- **Person**: Update the name "David Chen", the role "CEO, TechFlow Inc.", and the image URL.
-
-## 8. Contact Section
-**File:** `App.tsx`
-- **Contact Details**: Search for "contact@luminastrategy.com", the phone number, or address (around line 233).
-- **Form**: You can change the placeholders or labels in the form section.
-
-## 9. Footer
-**File:** `App.tsx`
-- **Copyright**: Search for "Lumina Strategy Consulting" at the very bottom of the file to update the year and company name.
-
-## 10. Icons
-**File:** `App.tsx` and `components/Diagrams.tsx`
-- The icons are imported from `lucide-react`. If you want different icons, you can import them at the top of the file (e.g., `import { NewIcon } from 'lucide-react'`) and replace the existing components.
+## 7. Contact Information
+- **File:** `App.tsx`
+  - **Email**: sugandha.agarwal@gmail.com
+  - **Phone**: +91-9980206008
+  - **Address**: 737, 3rd B main, ISRO layout, Bengaluru, Karnataka, India, 560078
