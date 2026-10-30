@@ -1,40 +1,32 @@
 # Customization Guide for Manvari Partners Website
 
-This guide outlines the architecture and key components of the Manvari Partners global executive search and recruitment consultancy web application.
+The Manvari Partners website is structured into six clean sections on one page:
 
-## 1. Brand & General Configuration
-- **File:** `index.html` & `metadata.json`
-  - **Page Title & Meta**: Contains search engine tags targeting Global Executive Search, Retained & Contingency Recruitment, and HR Advisory.
-  - **Colors & Typography**: Tailored around Chicago Maroon (`#800000`, darker `#4A0000`) and Executive Slate (`#0F172A`) with Playfair Display and Inter.
+1. **Home**
+   - Title: `Manvari Partners | Executive Search, Recruitment & HR Advisory`
+   - Headline: *"The right people for the roles that matter."*
+   - Sub-headline and primary *"Talk to us"* call to action.
 
-## 2. Executive Search Models
-- **File:** `App.tsx` & `components/Diagrams.tsx`
-  - Four core search engagement models:
-    1. **Executive Search & Board Advisory**
-    2. **Retained Search Mandates**
-    3. **Specialized Contingency Search**
-    4. **Strategic HR Consultancy**
-  - Configurable data structures defined in `types.ts` (`SearchModel`).
+2. **What we do (Services)**
+   - 1. Recruitment and placement (contingency fee model).
+   - 2. Executive search (retained search for board members, CEOs, and senior leaders).
+   - 3. HR advisory and best practices.
+   - Tailored recommendation prompt for prospective clients.
 
-## 3. Industry Practices & Functional Skillsets
-- **File:** `App.tsx`
-  - Covers Technology & Digital Infrastructure, Financial Services & Private Equity, Industrial & Advanced Manufacturing, Healthcare & Life Sciences, Consumer & Retail Brands, and Corporate Functions.
-  - Interactive tab matrix showcasing representative mandates placed.
+3. **Across industries and regions**
+   - Sector coverage: Technology, Financial services, Manufacturing and industrials, Healthcare and life sciences, Consumer and retail, Corporate functions.
+   - Regional scope: India, Asia-Pacific, the Middle East, Europe and North America.
 
-## 4. Search Methodology (6-Stage Lifecycle)
-- **File:** `App.tsx`
-  - Stages: Mandate Calibration, Global Market Intelligence, Confidential Direct Vetting, Calibrated Shortlist, Offer Structuring, and 100-Day Integration Guarantee.
+4. **How we work**
+   - 4-step search lifecycle: Understand the role → Search and assess → Shortlist → Close and follow through.
+   - Why work with us: Experience, Direct attention, Discretion.
+   - Core values: Trust, Excellence, Client focus, Transparency.
 
-## 5. Interactive Mandate Estimator
-- **File:** `App.tsx`
-  - Allows clients to customize search models, target seniority, and geographic placement horizon with dynamic timeline and candidate pool estimation, with 1-click bridge to the confidential inquiry form.
+5. **About us (Founder & Managing Partner)**
+   - Profile of S Agarwal, Founder & Managing Partner, highlighting 20+ years in talent acquisition across India and global markets.
 
-## 6. Executive Leadership
-- **File:** `App.tsx`
-  - Features CEO & Managing Partner S Agarwal, highlighting international executive talent acquisition and cross-border placement pedigree across Americas, EMEA, and Asia-Pacific.
-
-## 7. Contact Information
-- **File:** `App.tsx`
-  - **Email**: sugandha.agarwal@gmail.com
-  - **Phone**: +91-9980206008
-  - **Address**: 737, 3rd B main, ISRO layout, Bengaluru, Karnataka, India, 560078
+6. **Talk to us (Contact)**
+   - Confidential inquiry form with service selection (`Recruitment and placement`, `Executive search`, `HR advisory`, `Not sure`).
+   - Email: `contact@manvari.com`
+   - Phone: `+91-9980206008` (Mon to Fri, 9:00 AM to 6:00 PM IST)
+   - Location: Bengaluru, India
