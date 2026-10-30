@@ -12,7 +12,7 @@ import {
 import { motion } from 'framer-motion';
 import { ContactFormData } from './types';
 
-const recruitingImage = "/src/assets/images/recruitment_in_action_1793381466551.jpg";
+import recruitingImage from './src/assets/images/recruitment_in_action_1793381466551.jpg';
 
 export const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -453,11 +453,11 @@ export const App: React.FC = () => {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {values.map((val, idx) => (
-                  <div key={idx} className="p-5 bg-slate-50 rounded-xl border border-slate-200/90">
-                    <div className="text-sm font-bold text-slate-900 mb-1.5 font-serif">
+                  <div key={idx} className="p-6 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="text-base font-bold text-slate-900 mb-2 font-serif">
                       • {val.title}
                     </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 leading-relaxed">
                       {val.description}
                     </p>
                   </div>
@@ -486,6 +486,13 @@ export const App: React.FC = () => {
                       src={recruitingImage} 
                       alt="Recruiting in action: talent partner and candidate in discussion" 
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        // Fallback in case of custom static path resolution
+                        const target = e.currentTarget;
+                        if (target.src !== window.location.origin + '/images/recruitment_in_action.jpg') {
+                          target.src = './images/recruitment_in_action.jpg';
+                        }
+                      }}
                       className="w-full h-full object-cover" 
                     />
                   </div>
