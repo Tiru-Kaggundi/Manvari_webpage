@@ -5,17 +5,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { HeroScene } from './components/QuantumScene';
-import { ServiceCardItem } from './components/Diagrams';
 import { 
   Menu, X, ArrowRight, Mail, Phone, MapPin, 
-  Cpu, Landmark, Factory, Stethoscope, ShoppingBag, Briefcase,
-  CheckCircle2, Globe2, Shield, HeartHandshake, Eye, Sparkles, Send
+  Send, CheckCircle2, ChevronRight, Check
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ContactFormData } from './types';
 
-const heroImage = "/src/assets/images/hero_executive_search_1793371616944.jpg";
-const founderImage = "/src/assets/images/ceo_executive_leader_1793371617854.jpg";
+const recruitingImage = "/src/assets/images/recruitment_in_action_1793381466551.jpg";
 
 export const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -89,12 +86,20 @@ export const App: React.FC = () => {
   ];
 
   const industries = [
-    { title: 'Technology', icon: Cpu, desc: 'Software engineering, product leadership, cloud infrastructure, and data.' },
-    { title: 'Financial services', icon: Landmark, desc: 'Banking, asset management, private equity, fintech, and capital markets.' },
-    { title: 'Manufacturing and industrials', icon: Factory, desc: 'Advanced engineering, precision manufacturing, operations, and supply chain.' },
-    { title: 'Healthcare and life sciences', icon: Stethoscope, desc: 'Pharmaceuticals, biotechnology, medical devices, and digital health.' },
-    { title: 'Consumer and retail', icon: ShoppingBag, desc: 'Direct-to-consumer, e-commerce, brand leadership, and omnichannel retail.' },
-    { title: 'Corporate functions', icon: Briefcase, desc: 'Leadership across HR, finance, legal, and operational functions.' }
+    'Banking, financial services and wealth management',
+    'Technology',
+    'Manufacturing and industrials',
+    'Healthcare and life sciences',
+    'Consumer and retail'
+  ];
+
+  const functions = [
+    'Finance, treasury, audit and compliance',
+    'Technology, digital transformation and data',
+    'HR, compensation and talent management',
+    'Procurement, supply chain and logistics',
+    'Corporate sales, business development and strategic partnerships',
+    'Strategy, PMO and business operations'
   ];
 
   const workSteps = [
@@ -183,7 +188,7 @@ export const App: React.FC = () => {
               What we do
             </button>
             <button onClick={() => scrollTo('industries')} className="hover:text-accent transition-colors whitespace-nowrap shrink-0">
-              Industries & regions
+              Across industries and regions
             </button>
             <button onClick={() => scrollTo('how-we-work')} className="hover:text-accent transition-colors whitespace-nowrap shrink-0">
               How we work
@@ -218,7 +223,7 @@ export const App: React.FC = () => {
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-7 text-xl font-serif">
           <button onClick={() => scrollTo('services')} className="hover:text-accent">What we do</button>
-          <button onClick={() => scrollTo('industries')} className="hover:text-accent">Industries & regions</button>
+          <button onClick={() => scrollTo('industries')} className="hover:text-accent">Across industries and regions</button>
           <button onClick={() => scrollTo('how-we-work')} className="hover:text-accent">How we work</button>
           <button onClick={() => scrollTo('about')} className="hover:text-accent">About us</button>
           <button 
@@ -231,74 +236,46 @@ export const App: React.FC = () => {
       )}
 
       {/* 1. Home (Hero Section) */}
-      <header className="relative min-h-[85vh] flex items-center pt-28 pb-16 overflow-hidden">
+      <header className="relative min-h-[75vh] flex items-center pt-28 pb-20 overflow-hidden">
         <HeroScene />
         
-        <div className="container mx-auto px-6 max-w-6xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left: Main Copy & CTA */}
-            <div className="lg:col-span-7 space-y-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="text-xs font-semibold tracking-wider uppercase text-accent mb-3">
-                  Executive Search · Recruitment · HR Advisory
-                </div>
-
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.14] mb-5" style={{ textWrap: 'balance' }}>
-                  The right people for the roles that matter.
-                </h1>
-
-                <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-                  Manvari Partners is an executive search and recruitment firm. We find best-in-class talent for each client's needs, across industries and regions, drawing on more than twenty years of global talent acquisition experience.
-                </p>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="pt-2"
-              >
-                <button 
-                  onClick={() => scrollTo('contact')} 
-                  className="px-8 py-3.5 bg-accent text-white rounded-md text-xs font-semibold uppercase tracking-wider hover:bg-accent-dark transition-all hover:shadow-md flex items-center gap-2 group"
-                >
-                  <span>Talk to us</span>
-                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform"/>
-                </button>
-              </motion.div>
+        <div className="container mx-auto px-6 max-w-5xl relative z-10 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl mx-auto space-y-6"
+          >
+            <div className="inline-block text-xs font-semibold tracking-wider uppercase text-accent">
+              Executive Search · Recruitment · HR Advisory
             </div>
-            
-            {/* Right: Dignified Corporate Image */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-5"
-            >
-              <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-                <img 
-                  src={heroImage} 
-                  alt="Global executive search advisory" 
-                  referrerPolicy="no-referrer"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </motion.div>
 
-          </div>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.15]" style={{ textWrap: 'balance' }}>
+              The right people for the roles that matter.
+            </h1>
+
+            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Manvari Partners is an executive search and recruitment firm. We find best-in-class talent for each client's needs, across industries and regions, drawing on more than twenty years of global talent acquisition experience.
+            </p>
+
+            <div className="pt-3">
+              <button 
+                onClick={() => scrollTo('contact')} 
+                className="px-8 py-3.5 bg-accent text-white rounded-md text-xs font-semibold uppercase tracking-wider hover:bg-accent-dark transition-all hover:shadow-md inline-flex items-center gap-2 group"
+              >
+                <span>Talk to us</span>
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform"/>
+              </button>
+            </div>
+          </motion.div>
         </div>
       </header>
 
       <main>
         {/* 2. Services: What we do */}
         <section id="services" className="py-24 bg-white border-t border-slate-200">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <div className="max-w-3xl mb-14">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="max-w-2xl mb-12">
               <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 mb-3">
                 What we do
               </h2>
@@ -308,20 +285,29 @@ export const App: React.FC = () => {
             </div>
 
             {/* 3 Service Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {services.map((service, index) => (
-                <ServiceCardItem
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              {services.map((service) => (
+                <div 
                   key={service.number}
-                  number={service.number}
-                  title={service.title}
-                  description={service.description}
-                  index={index}
-                />
+                  className="bg-[#F8FAFC] p-8 rounded-xl border border-slate-200/90 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="text-xs font-mono font-bold text-accent mb-3 tracking-wider uppercase">
+                      0{service.number}
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed text-sm">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
 
             {/* Line under the list */}
-            <div className="p-6 bg-slate-50 rounded-xl border border-slate-200/90 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <p className="text-slate-700 text-sm font-medium">
                 Not sure which fits? Tell us about the role and we will recommend an approach.
               </p>
@@ -337,8 +323,8 @@ export const App: React.FC = () => {
 
         {/* 3. Across industries and regions */}
         <section id="industries" className="py-24 bg-[#F8FAFC] border-t border-slate-200">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <div className="max-w-3xl mb-14">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="max-w-2xl mb-12">
               <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 mb-3">
                 Across industries and regions
               </h2>
@@ -347,51 +333,76 @@ export const App: React.FC = () => {
               </p>
             </div>
 
-            {/* Industries simple list / card row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-              {industries.map((ind, idx) => {
-                const IconComponent = ind.icon;
-                return (
-                  <div key={idx} className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-xs flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200/60 flex items-center justify-center text-accent shrink-0">
-                      <IconComponent size={20} />
-                    </div>
-                    <div>
-                      <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">
-                        {ind.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        {ind.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+            {/* Industries & Functions Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              
+              {/* Industries */}
+              <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-xs">
+                <h3 className="font-serif text-xl font-bold text-slate-900 mb-5">
+                  Industries
+                </h3>
+                <ul className="space-y-3">
+                  {industries.map((ind, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <span className="text-accent font-bold">•</span>
+                      <span>{ind}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Functions */}
+              <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-xs">
+                <h3 className="font-serif text-xl font-bold text-slate-900 mb-5">
+                  Functions
+                </h3>
+                <ul className="space-y-3">
+                  {functions.map((func, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <span className="text-accent font-bold">•</span>
+                      <span>{func}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+
+            {/* Specialist Focus Callout */}
+            <div className="p-6 bg-slate-900 text-white rounded-xl border border-slate-800 mb-8 shadow-sm">
+              <div className="text-xs font-mono uppercase tracking-wider text-accent mb-1.5 font-bold">
+                Specialist focus
+              </div>
+              <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
+                Deep tech, trading, software and quant engineers for banks, trading firms and other financial services firms.
+              </p>
             </div>
 
             {/* Regions */}
-            <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-xs">
-              <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-accent mb-2">
-                <Globe2 size={16} />
-                <span>Geographic Scope</span>
+            <div className="bg-white p-7 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">
+                  Regions
+                </h3>
+                <p className="text-slate-700 text-sm font-medium">
+                  India, Asia-Pacific, the Middle East, Europe and North America.
+                </p>
               </div>
-              <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">
-                Regions
-              </h3>
-              <p className="text-slate-700 text-base font-medium mb-2">
-                India, Asia-Pacific, the Middle East, Europe and North America.
-              </p>
-              <p className="text-xs text-slate-500">
-                Supporting domestic enterprise buildouts as well as cross-border international talent mobility.
-              </p>
+              <button 
+                onClick={() => scrollTo('contact')}
+                className="text-xs font-semibold text-accent hover:text-accent-dark flex items-center gap-1 shrink-0"
+              >
+                <span>Inquire about region</span>
+                <ChevronRight size={14} />
+              </button>
             </div>
           </div>
         </section>
 
         {/* 4. How we work */}
         <section id="how-we-work" className="py-24 bg-white border-t border-slate-200">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <div className="max-w-3xl mb-14">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="max-w-2xl mb-12">
               <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 mb-3">
                 How we work
               </h2>
@@ -400,7 +411,7 @@ export const App: React.FC = () => {
             {/* 4 Steps */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {workSteps.map((step) => (
-                <div key={step.number} className="p-6 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+                <div key={step.number} className="p-6 bg-[#F8FAFC] rounded-xl border border-slate-200 flex flex-col justify-between">
                   <div>
                     <div className="text-2xl font-serif font-bold text-accent font-mono mb-3">
                       0{step.number}
@@ -417,13 +428,13 @@ export const App: React.FC = () => {
             </div>
 
             {/* Why work with us */}
-            <div className="mb-16 pt-12 border-t border-slate-200">
-              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-8">
+            <div className="mb-16 pt-10 border-t border-slate-200">
+              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-6">
                 Why work with us
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {whyWorkWithUs.map((item, idx) => (
-                  <div key={idx} className="p-6 bg-white rounded-xl border border-slate-200/90 shadow-xs">
+                  <div key={idx} className="p-6 bg-slate-50 rounded-xl border border-slate-200">
                     <div className="text-base font-bold text-slate-900 mb-2 font-serif">
                       • {item.title}
                     </div>
@@ -436,13 +447,13 @@ export const App: React.FC = () => {
             </div>
 
             {/* Our values */}
-            <div className="pt-12 border-t border-slate-200">
-              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-8">
+            <div className="pt-10 border-t border-slate-200">
+              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-6">
                 Our values
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {values.map((val, idx) => (
-                  <div key={idx} className="p-5 bg-slate-50 rounded-xl border border-slate-200/80">
+                  <div key={idx} className="p-5 bg-slate-50 rounded-xl border border-slate-200/90">
                     <div className="text-sm font-bold text-slate-900 mb-1.5 font-serif">
                       • {val.title}
                     </div>
@@ -458,31 +469,36 @@ export const App: React.FC = () => {
 
         {/* 5. About us */}
         <section id="about" className="py-24 bg-[#F8FAFC] border-t border-slate-200">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <div className="max-w-3xl mb-12">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="max-w-2xl mb-12">
               <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 mb-3">
                 About us
               </h2>
             </div>
             
-            <div className="bg-white p-8 md:p-12 rounded-2xl border border-slate-200 shadow-sm max-w-5xl">
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
+            <div className="bg-white p-8 md:p-10 rounded-2xl border border-slate-200 shadow-xs">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                {/* Founder Portrait */}
-                <div className="w-44 h-44 shrink-0 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm">
-                  <img 
-                    src={founderImage} 
-                    alt="S Agarwal, Founder & Managing Partner" 
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover" 
-                  />
+                {/* Recruiting in action photo */}
+                <div className="lg:col-span-5">
+                  <div className="aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
+                    <img 
+                      src={recruitingImage} 
+                      alt="Recruiting in action: talent partner and candidate in discussion" 
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover" 
+                    />
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-2 text-center sm:text-left">
+                    Recruiting in action · Focused, personal search support
+                  </div>
                 </div>
 
                 {/* Founder Narrative */}
-                <div className="space-y-4 text-center md:text-left">
+                <div className="lg:col-span-7 space-y-4">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">
-                      S Agarwal
+                    <h3 className="text-2xl font-serif font-bold text-slate-900">
+                      Sugandha Agarwal
                     </h3>
                     <div className="text-accent font-semibold tracking-wider text-xs uppercase mt-1">
                       Founder & Managing Partner
@@ -490,10 +506,10 @@ export const App: React.FC = () => {
                   </div>
 
                   <p className="text-slate-600 leading-relaxed text-sm">
-                    S Agarwal has spent more than twenty years in talent acquisition, hiring for organisations across India, Asia-Pacific, the Middle East, Europe and North America across diverse industries including technology, financial services, industrials, healthcare, and consumer businesses. Her experience covers executive and leadership hiring, cross-border recruitment, and HR advisory for growing businesses. She founded Manvari Partners to offer clients focused, personal search support.
+                    Sugandha Agarwal has spent more than twenty years in talent acquisition, hiring for organisations across India, Asia-Pacific, the Middle East, Europe and North America. Her experience covers executive and leadership hiring, cross-border recruitment, and HR advisory for growing businesses. She founded Manvari Partners to offer clients focused, personal search support.
                   </p>
 
-                  <div className="pt-2 text-slate-800 font-serif italic text-base">
+                  <div className="pt-2 text-slate-800 font-serif italic text-base border-t border-slate-100">
                     "Finding the right people for the roles that matter most."
                   </div>
                 </div>
@@ -505,8 +521,8 @@ export const App: React.FC = () => {
 
         {/* 6. Talk to us (Contact) */}
         <section id="contact" className="py-24 bg-white border-t border-slate-200">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <div className="max-w-3xl mb-12">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="max-w-2xl mb-12">
               <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 mb-3">
                 Talk to us
               </h2>
@@ -515,7 +531,7 @@ export const App: React.FC = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               
               {/* Form */}
               <div className="lg:col-span-7 bg-[#F8FAFC] p-8 rounded-xl border border-slate-200">
@@ -662,7 +678,7 @@ export const App: React.FC = () => {
               <div className="lg:col-span-5 space-y-6">
                 <div>
                   <h3 className="font-serif text-xl font-bold text-slate-900 mb-4">
-                    Direct Contact
+                    Contact details
                   </h3>
                   
                   <div className="space-y-5 text-sm">
@@ -674,10 +690,10 @@ export const App: React.FC = () => {
                       <div>
                         <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Email</div>
                         <a 
-                          href="mailto:contact@manvari.com" 
+                          href="mailto:sugandha.agarwal@gmail.com" 
                           className="font-medium text-slate-900 hover:text-accent transition-colors"
                         >
-                          contact@manvari.com
+                          sugandha.agarwal@gmail.com
                         </a>
                       </div>
                     </div>
@@ -718,7 +734,7 @@ export const App: React.FC = () => {
 
                 <div className="p-5 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed">
                   <span className="font-semibold text-slate-900">Client discretion: </span>
-                  We operate with strict confidentiality for all client mandates and candidate conversations.
+                  All client briefs and candidate details are handled in complete confidence.
                 </div>
               </div>
 
@@ -729,7 +745,7 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-12 border-t border-slate-800">
-        <div className="container mx-auto px-6 max-w-6xl">
+        <div className="container mx-auto px-6 max-w-5xl">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-slate-800">
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -747,7 +763,7 @@ export const App: React.FC = () => {
 
             <div className="flex flex-wrap gap-6 text-xs text-slate-300">
               <button onClick={() => scrollTo('services')} className="hover:text-white transition-colors">What we do</button>
-              <button onClick={() => scrollTo('industries')} className="hover:text-white transition-colors">Industries & regions</button>
+              <button onClick={() => scrollTo('industries')} className="hover:text-white transition-colors">Across industries and regions</button>
               <button onClick={() => scrollTo('how-we-work')} className="hover:text-white transition-colors">How we work</button>
               <button onClick={() => scrollTo('about')} className="hover:text-white transition-colors">About us</button>
               <button onClick={() => scrollTo('contact')} className="hover:text-white transition-colors">Talk to us</button>
@@ -759,7 +775,7 @@ export const App: React.FC = () => {
               &copy; {new Date().getFullYear()} Manvari Partners. All rights reserved.
             </div>
             <div>
-              Bengaluru, India · contact@manvari.com
+              Bengaluru, India · sugandha.agarwal@gmail.com
             </div>
           </div>
         </div>
