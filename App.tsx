@@ -29,6 +29,7 @@ export const App: React.FC = () => {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -53,7 +54,20 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const triggerMailto = () => {
+    const subject = encodeURIComponent(`Mandate Inquiry: ${formData.company} - ${formData.service}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Work Email: ${formData.workEmail}\n` +
+      `Company: ${formData.company}\n` +
+      `Phone: ${formData.phone || 'N/A'}\n` +
+      `Service of Interest: ${formData.service}\n\n` +
+      `Message:\n${formData.message || 'N/A'}`
+    );
+    window.location.href = `mailto:sugandha.agarwal@gmail.com?subject=${subject}&body=${body}`;
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.workEmail.trim() || !formData.company.trim()) {
       setFormError('Please complete your name, work email, and company.');
@@ -63,8 +77,44 @@ export const App: React.FC = () => {
       setFormError('Please enter a valid work email address.');
       return;
     }
+
     setFormError('');
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/sugandha.agarwal@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Mandate Inquiry from ${formData.name} (${formData.company}) - Manvari Partners`,
+          _template: 'table',
+          _captcha: 'false',
+          'Client Name': formData.name,
+          'Work Email': formData.workEmail,
+          'Company': formData.company,
+          'Phone': formData.phone || 'Not provided',
+          'Service of Interest': formData.service,
+          'Message / Brief': formData.message || 'No additional details provided.'
+        })
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        // Direct email client fallback if service fails
+        triggerMailto();
+        setFormSubmitted(true);
+      }
+    } catch (err) {
+      // Direct mailto fallback if network or adblock blocks endpoint
+      triggerMailto();
+      setFormSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -548,10 +598,10 @@ export const App: React.FC = () => {
                       <CheckCircle2 size={24} />
                     </div>
                     <h3 className="font-serif text-xl font-bold text-slate-900">
-                      Thank you for getting in touch.
+                      Enquiry Delivered
                     </h3>
-                    <p className="text-slate-600 text-sm max-w-sm mx-auto">
-                      We have received your enquiry and will respond promptly for an initial conversation.
+                    <p className="text-slate-600 text-sm max-w-sm mx-auto leading-relaxed">
+                      Thank you for getting in touch. Your message has been sent directly to <span className="font-medium text-slate-800">sugandha.agarwal@gmail.com</span>. We will review the details and respond promptly.
                     </p>
                     <button
                       onClick={() => {
@@ -668,14 +718,24 @@ export const App: React.FC = () => {
 
                     <button
                       type="submit"
-                      className="w-full py-3 px-6 bg-accent hover:bg-accent-dark text-white rounded-md text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-xs"
+                      disabled={isSubmitting}
+                      className="w-full py-3 px-6 bg-accent hover:bg-accent-dark disabled:opacity-60 text-white rounded-md text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer disabled:cursor-not-allowed"
                     >
-                      <Send size={14} />
-                      <span>Send</span>
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <span>Sending enquiry...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send size={14} />
+                          <span>Send</span>
+                        </>
+                      )}
                     </button>
 
                     <p className="text-xs text-slate-500 text-center pt-1">
-                      All enquiries are handled in confidence.
+                      All enquiries are handled in confidence and delivered directly to sugandha.agarwal@gmail.com.
                     </p>
                   </form>
                 )}

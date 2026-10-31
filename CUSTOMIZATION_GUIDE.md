@@ -1,6 +1,6 @@
 # Customization Guide for Manvari Partners Website
 
-The Manvari Partners website is organized into six concise sections on one page:
+The Manvari Partners website is structured into six concise sections on one page:
 
 1. **Home**
    - Title: `Manvari Partners | Executive Search, Recruitment & HR Advisory`
@@ -29,8 +29,10 @@ The Manvari Partners website is organized into six concise sections on one page:
    - Authentic recruiting in action photograph showing interviewer and candidate in conversation with no visible logos.
    - Closing line: *"Finding the right people for the roles that matter most."*
 
-6. **Talk to us**
-   - Confidential inquiry form with service selection (`Recruitment and placement`, `Executive search`, `HR advisory`, `Not sure`).
+6. **Talk to us (Email Delivery on GitHub Pages)**
+   - The contact form is wired to deliver submissions directly to `sugandha.agarwal@gmail.com` without needing a server, using the static-site form service endpoint `https://formsubmit.co/ajax/sugandha.agarwal@gmail.com`.
+   - **First-Time Activation**: The very first time a message is submitted through the form, FormSubmit sends a one-time verification email to `sugandha.agarwal@gmail.com` with an "Activate Form" button. Once confirmed, all future inquiries are routed directly to your inbox formatted in a table.
+   - **Mailto Fallback**: If a client has strict corporate firewall/ad-block rules blocking external API requests, the form automatically falls back to opening a formatted draft directly in their email client addressed to `sugandha.agarwal@gmail.com`.
    - Email: `sugandha.agarwal@gmail.com`
    - Phone: `+91-9980206008` (Mon to Fri, 9:00 AM to 6:00 PM IST)
    - Location: `Bengaluru, India`
