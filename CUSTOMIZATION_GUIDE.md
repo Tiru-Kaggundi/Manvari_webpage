@@ -2,37 +2,41 @@
 
 The Manvari Partners website is structured into six concise sections on one page:
 
-1. **Home**
-   - Title: `Manvari Partners | Executive Search, Recruitment & HR Advisory`
-   - Headline: *"The right people for the roles that matter."*
-   - Sub-headline and primary *"Talk to us"* action.
+1. **Brand Identity & Assets**
+   - **Header & Mobile Logo**: `manvari-logo.svg` (official SVG vector logo, scaled to `h-8 md:h-9`).
+   - **Dark Background / Footer Logo**: `manvari-logo-white.png` (white version for dark slate surfaces).
+   - **Favicon**: `manvari-favicon.png` configured in `index.html`.
+   - **Social Share Card**: `manvari-logo.png` referenced in OpenGraph meta tags.
 
-2. **What we do**
+2. **Home (Hero)**
+   - Headline: *"Connecting organisations with exceptional talent"*
+   - Sub-headline: *"Manvari Partners helps organisations find and place high-calibre professionals and partners with leadership teams on executive search. Drawing on deep expertise, Manvari Partners offers talent market insights and advisory on hiring strategy."*
+   - Action Button: *"Talk to us"*
+
+3. **What we do**
    - 1. Recruitment and placement (contingency fee model).
    - 2. Executive search (retained search for board members, CEOs, and senior leaders).
    - 3. HR advisory and best practices.
    - Recommendation prompt: *"Not sure which fits? Tell us about the role and we will recommend an approach."*
 
-3. **Across industries and regions**
+4. **Across industries and regions**
    - **Industries**: Banking, financial services and wealth management; Technology; Manufacturing and industrials; Healthcare and life sciences; Consumer and retail.
-   - **Specialist focus**: Deep tech, trading, software and quant engineers for banks, trading firms and other financial services firms.
    - **Functions**: Finance, treasury, audit and compliance; Technology, digital transformation and data; HR, compensation and talent management; Procurement, supply chain and logistics; Corporate sales, business development and strategic partnerships; Strategy, PMO and business operations.
-   - **Regions**: India, Asia-Pacific, the Middle East, Europe and North America.
+   - **Practice Experience**: *"We partner with organisations across sectors and regions across all roles. We have deep experience serving global financial services firms and their GCCs, including asset management companies, across deep tech, quantitative modelling, engineering, finance and accounting, fund administration and fund finance."*
+   - **Regions (Ordered)**: India, Middle East, Europe, APAC & Americas.
 
-4. **How we work**
+5. **How we work**
    - 4-step process: Understand the role → Search and assess → Shortlist → Close and follow through.
    - Why work with us: Experience, Direct attention, Discretion.
    - Values: Trust, Excellence, Client focus, Transparency.
 
-5. **About us**
+6. **About us**
    - **Sugandha Agarwal, Founder & Managing Partner**
    - Authentic recruiting in action photograph showing interviewer and candidate in conversation with no visible logos.
    - Closing line: *"Finding the right people for the roles that matter most."*
 
-6. **Talk to us (Email Delivery on GitHub Pages)**
-   - The contact form is wired to deliver submissions directly to `sugandha.agarwal@gmail.com` without needing a server, using the static-site form service endpoint `https://formsubmit.co/ajax/sugandha.agarwal@gmail.com`.
-   - **First-Time Activation**: The very first time a message is submitted through the form, FormSubmit sends a one-time verification email to `sugandha.agarwal@gmail.com` with an "Activate Form" button. Once confirmed, all future inquiries are routed directly to your inbox formatted in a table.
-   - **Mailto Fallback**: If a client has strict corporate firewall/ad-block rules blocking external API requests, the form automatically falls back to opening a formatted draft directly in their email client addressed to `sugandha.agarwal@gmail.com`.
-   - Email: `sugandha.agarwal@gmail.com`
-   - Phone: `+91-9980206008` (Mon to Fri, 9:00 AM to 6:00 PM IST)
+7. **Talk to us (Email Delivery on GitHub Pages)**
+   - Asynchronous form submissions routed directly to `sugandha.agarwal@gmail.com` with mailto fallback.
+   - Direct Email: `sugandha.agarwal@gmail.com`
+   - Direct Phone: `+91-9980206008` (Mon to Fri, 9:00 AM to 6:00 PM IST)
    - Location: `Bengaluru, India`

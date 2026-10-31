@@ -12,6 +12,8 @@ import {
 import { motion } from 'framer-motion';
 import { ContactFormData } from './types';
 
+import logoSvg from './src/assets/images/manvari-logo.svg';
+import logoWhite from './src/assets/images/manvari-logo-white.png';
 import recruitingImage from './src/assets/images/recruitment_in_action_1793381466551.jpg';
 
 export const App: React.FC = () => {
@@ -219,17 +221,17 @@ export const App: React.FC = () => {
         }`}
       >
         <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between gap-8">
-          {/* Zone 1: Brand Wordmark */}
+          {/* Zone 1: Official Brand Logo */}
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
-            className="flex items-center gap-2.5 text-left whitespace-nowrap shrink-0 group cursor-pointer focus-visible:outline-none"
+            className="flex items-center text-left whitespace-nowrap shrink-0 group cursor-pointer focus-visible:outline-none"
+            aria-label="Manvari Partners Home"
           >
-            <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center text-white font-serif font-bold text-lg shadow-xs">
-              M
-            </div>
-            <span className="font-serif font-bold text-lg tracking-wide text-slate-900">
-              Manvari<span className="text-accent"> Partners</span>
-            </span>
+            <img 
+              src={logoSvg} 
+              alt="Manvari Partners" 
+              className="h-8 sm:h-9 w-auto object-contain"
+            />
           </button>
           
           {/* Zone 2: Clean single-line text links */}
@@ -272,6 +274,13 @@ export const App: React.FC = () => {
       {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-7 text-xl font-serif">
+          <div className="mb-2">
+            <img 
+              src={logoSvg} 
+              alt="Manvari Partners" 
+              className="h-8 w-auto object-contain"
+            />
+          </div>
           <button onClick={() => scrollTo('services')} className="hover:text-accent">What we do</button>
           <button onClick={() => scrollTo('industries')} className="hover:text-accent">Across industries and regions</button>
           <button onClick={() => scrollTo('how-we-work')} className="hover:text-accent">How we work</button>
@@ -301,11 +310,11 @@ export const App: React.FC = () => {
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.15]" style={{ textWrap: 'balance' }}>
-              The right people for the roles that matter.
+              Connecting organisations with exceptional talent
             </h1>
 
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Manvari Partners is an executive search and recruitment firm. We find best-in-class talent for each client's needs, across industries and regions, drawing on more than twenty years of global talent acquisition experience.
+              Manvari Partners helps organisations find and place high-calibre professionals and partners with leadership teams on executive search. Drawing on deep expertise, Manvari Partners offers talent market insights and advisory on hiring strategy.
             </p>
 
             <div className="pt-3">
@@ -418,13 +427,10 @@ export const App: React.FC = () => {
 
             </div>
 
-            {/* Specialist Focus Callout */}
-            <div className="p-6 bg-slate-900 text-white rounded-xl border border-slate-800 mb-8 shadow-sm">
-              <div className="text-xs font-mono uppercase tracking-wider text-accent mb-1.5 font-bold">
-                Specialist focus
-              </div>
-              <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
-                Deep tech, trading, software and quant engineers for banks, trading firms and other financial services firms.
+            {/* Practice Experience */}
+            <div className="p-7 bg-white rounded-xl border border-slate-200 shadow-xs mb-8">
+              <p className="text-base text-slate-700 leading-relaxed">
+                We partner with organisations across sectors and regions across all roles. We have deep experience serving global financial services firms and their GCCs, including asset management companies, across deep tech, quantitative modelling, engineering, finance and accounting, fund administration and fund finance.
               </p>
             </div>
 
@@ -435,7 +441,7 @@ export const App: React.FC = () => {
                   Regions
                 </h3>
                 <p className="text-slate-700 text-sm font-medium">
-                  India, Asia-Pacific, the Middle East, Europe and North America.
+                  India, Middle East, Europe, APAC & Americas
                 </p>
               </div>
               <button 
@@ -563,7 +569,7 @@ export const App: React.FC = () => {
                   </div>
 
                   <p className="text-slate-600 leading-relaxed text-sm">
-                    Sugandha Agarwal has spent more than twenty years in talent acquisition, hiring for organisations across India, Asia-Pacific, the Middle East, Europe and North America. Her experience covers executive and leadership hiring, cross-border recruitment, and HR advisory for growing businesses. She founded Manvari Partners to offer clients focused, personal search support.
+                    Sugandha Agarwal has spent more than twenty years in talent acquisition, hiring for organisations across India, Middle East, Europe, APAC & Americas. Her experience covers executive and leadership hiring, cross-border recruitment, and HR advisory for growing businesses. She founded Manvari Partners to offer clients focused, personal search support.
                   </p>
 
                   <div className="pt-2 text-slate-800 font-serif italic text-base border-t border-slate-100">
@@ -815,13 +821,12 @@ export const App: React.FC = () => {
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-slate-800">
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-6 h-6 bg-accent rounded-xs flex items-center justify-center text-white font-serif font-bold text-sm">
-                  M
-                </div>
-                <span className="font-serif font-bold text-lg text-white">
-                  Manvari<span className="text-accent"> Partners</span>
-                </span>
+              <div className="mb-3">
+                <img 
+                  src={logoWhite} 
+                  alt="Manvari Partners" 
+                  className="h-7 sm:h-8 w-auto object-contain"
+                />
               </div>
               <p className="text-xs text-slate-400">
                 Finding the right people for the roles that matter most.
