@@ -573,7 +573,7 @@ export const App: React.FC = () => {
                   </p>
 
                   <div className="pt-2 text-slate-800 font-serif italic text-base border-t border-slate-100">
-                    "Finding the right people for the roles that matter most."
+                    "Connecting organisations with exceptional talent."
                   </div>
                 </div>
 
@@ -829,7 +829,7 @@ export const App: React.FC = () => {
                 />
               </div>
               <p className="text-xs text-slate-400">
-                Finding the right people for the roles that matter most.
+                Connecting organisations with exceptional talent.
               </p>
             </div>
 

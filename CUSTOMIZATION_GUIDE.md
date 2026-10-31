@@ -33,7 +33,7 @@ The Manvari Partners website is structured into six concise sections on one page
 6. **About us**
    - **Sugandha Agarwal, Founder & Managing Partner**
    - Authentic recruiting in action photograph showing interviewer and candidate in conversation with no visible logos.
-   - Closing line: *"Finding the right people for the roles that matter most."*
+   - Closing line: *"Connecting organisations with exceptional talent."*
 
 7. **Talk to us (Email Delivery on GitHub Pages)**
    - Asynchronous form submissions routed directly to `sugandha.agarwal@gmail.com` with mailto fallback.
