@@ -306,7 +306,7 @@ export const App: React.FC = () => {
             className="max-w-3xl mx-auto space-y-6"
           >
             <div className="inline-block text-xs font-semibold tracking-wider uppercase text-accent">
-              Executive Search · Recruitment · HR Advisory
+              Recruitment & Placement Services · Leadership Hiring · Talent Solutions
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.15]" style={{ textWrap: 'balance' }}>

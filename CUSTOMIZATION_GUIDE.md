@@ -9,6 +9,7 @@ The Manvari Partners website is structured into six concise sections on one page
    - **Social Share Card**: `manvari-logo.png` referenced in OpenGraph meta tags.
 
 2. **Home (Hero)**
+   - Top Eyebrow: *"Recruitment & Placement Services · Leadership Hiring · Talent Solutions"*
    - Headline: *"Connecting organisations with exceptional talent"*
    - Sub-headline: *"Manvari Partners helps organisations find and place high-calibre professionals and partners with leadership teams on executive search. Drawing on deep expertise, Manvari Partners offers talent market insights and advisory on hiring strategy."*
    - Action Button: *"Talk to us"*
